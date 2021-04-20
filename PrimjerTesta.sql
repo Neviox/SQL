@@ -1,0 +1,66 @@
+--1.
+--select distinct(o.ShipCity), o.ShipCountry								
+--from orders o
+--where not o.ShipCountry = 'USA' 
+--and o.ShippedDate is not null
+--2.
+--select o.orderid, year(o.OrderDate)
+--from Orders o
+--where year(o.OrderDate) <> 2000
+--3.
+--SELECT * from Customers 
+--where City like '%W%' 
+--and region is not null
+--4.
+--select ProductID, UnitPrice Cijena, 
+--UnitPrice*0.92 Cijena_popust_8 
+--from [Order Details]
+--where orderid=10457;
+--5.
+--select avg(o.Quantity) _AVG_
+--from [Order Details] o
+--6.
+--select *
+--from Orders o
+--where abs(datediff(day, o.OrderDate, o.ShippedDate)) > 5
+--7.
+--SELECT Suppliers.CompanyName,
+--count([Order Details].OrderID) Sold
+--FROM	
+--products inner join [Order Details] on 
+--products.ProductID=[Order Details].ProductID
+--inner join suppliers 
+--on products.SupplierID=Suppliers.SupplierID
+--group by  Suppliers.CompanyName
+--having count([Order Details].OrderID)>  100
+--order by count([Order Details].OrderID) desc
+--8.
+--SELECT TOP 1 e.EmployeeID, e.FirstName, 
+--e.LastName, o.orderID, o.OrderDate, s.CompanyName
+--FROM   Employees e INNER JOIN Orders o ON 
+--e.EmployeeID=o.EmployeeID INNER JOIN Shippers s ON 
+--o.ShipVia=s.ShipperID
+--ORDER BY o.OrderDate desc
+--9.
+--SELECT e.LastName, e.FirstName, Count(o.OrderID) 
+--as BrojNarudzbi,Year(OrderDate)
+--FROM Employees e LEFT OUTER JOIN Orders o
+--ON e.EmployeeID = o.EmployeeID
+--WHERE Year(OrderDate) in (1997)
+--GROUP BY e.EmployeeID, e.LastName, 
+--e.FirstName,Year(OrderDate)
+--ORDER BY Count(o.OrderID) DESC
+--10.
+--select Employees.FirstName + ' ' + 
+--Employees.LastName as Name, HomePhone
+--from Employees
+--union
+--select CompanyName, Phone
+--from Customers
+--union
+--select CompanyName, Phone
+--from Shippers
+
+
+
+
